@@ -327,20 +327,25 @@ function show(category = null) {
   content.innerHTML = `${categoryButtons}${menuList}`;
 }
 
-function addToOrder(itemName, itemPrice) {
+function addToOrder(itemName, itemPrice, itemImage) {
   // Add item to orderItems array
-  orderItems.push({ name: itemName, price: itemPrice });
-  alert(`Added ${itemName} to your order. Price: ${itemPrice.toFixed(2)}`);
+  orderItems.push({ name: itemName, price: itemPrice, image: itemImage });
+  alert(
+    `Added ${itemImage} ${itemName} to your order. Price: ${itemPrice.toFixed(
+      2
+    )}`
+  );
 }
 
-function showOrder() {
+function dashboard() {
   const content = document.getElementById("content");
   const orderList = orderItems
     .map(
       (item) =>
-        ` <div>
-            <img src="${item.image}" alt="${item.name}" width="50" height="50">
-            <span>${item.name} - ${item.price.toFixed(2)}</span>
+        ` <div>     
+            <span>   <img src=${item.image}  width="50" height="50">${
+          item.name
+        } - ${item.price.toFixed(2)}</span>
           </div>`
     )
     .join("");
@@ -349,7 +354,7 @@ function showOrder() {
     .toFixed(2);
   content.innerHTML = `
     <div class="placeOrder">
-      <button onclick="placeOrder()">Place Order</button>
+      <button onclick="placeOrder(${totalAmount})">Place Order</button>
     </div>
     <div class="order">
       <h2>Order</h2>
@@ -364,5 +369,22 @@ function showOrder() {
           <li>Paypal</li>
         </ul>
       </div>
+      <div class="confirmation" id="payment"></div>
     </div>`;
 }
+
+function placeOrder(totalAmount) {
+  const paymentSection = document.getElementById("payment");
+  const paymentContent = `
+   
+    <h4>Successfully Placed Order!!</h4><span class="close" onclick="closebtn()">X</span>
+    <p>Total Amount to be paid: ₱${totalAmount}</p>
+     `;
+  payment.innerHTML = paymentContent;
+}
+function closebtn(){
+  const paymentSection = document.getElementById("payment");
+  payment.innerHTML = "";
+}
+
+  

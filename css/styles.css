@@ -185,7 +185,7 @@ span {
   border-color: #c3e6cb;
 }
 
-alert{
+alert {
   color: #721c24;
   background-color: #f8d7da;
   border-color: #f5c6cb;
@@ -201,4 +201,29 @@ alert{
   color: #0c5460;
   background-color: #d1ecf1;
   border-color: #bee5eb;
+}
+.confirmation {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  top: 40%;
+  left: 40%;
+  position: absolute;
+  background-color: rgb(15, 96, 15);
+  cursor: pointer;
+}
+.confirmation h4 {
+  padding: 30px 30px 0px 30px;
+
+  color: white;
+}
+.confirmation p {
+  padding: 0px 30px 0px 30px;
+  padding-bottom: 30px;
+  color: goldenrod;
+}
+.close {
+  top: 10px;
+  left: 94%;
+  position: absolute;
+  color: white;
+  cursor: pointer;
 }
