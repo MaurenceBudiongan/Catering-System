@@ -358,7 +358,7 @@ function dashboard() {
     </div>
     <div class="order">
       <h2>Order</h2>
-      <ul>${orderList}</ul>
+      <ul id="order">${orderList}</ul>
       <h3>Total Amount: ${totalAmount}</h3>
       <div class="payment">
         <h4> Mode Of Payment</h4>
@@ -374,7 +374,7 @@ function dashboard() {
 }
 
 function placeOrder(totalAmount) {
-  const paymentSection = document.getElementById("payment");
+  const payment = document.getElementById("payment");
   const paymentContent = `
    
     <h4>Successfully Placed Order!!</h4><span class="close" onclick="closebtn()">X</span>
@@ -382,9 +382,8 @@ function placeOrder(totalAmount) {
      `;
   payment.innerHTML = paymentContent;
 }
-function closebtn(){
-  const paymentSection = document.getElementById("payment");
+function closebtn() {
+  const order = document.getElementById("order");
   payment.innerHTML = "";
+  order.innerHTML = "";
 }
-
-  
