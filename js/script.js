@@ -359,7 +359,7 @@ function dashboard() {
     <div class="order">
       <h2>Order</h2>
       <ul id="order">${orderList}</ul>
-      <h3>Total Amount: ${totalAmount}</h3>
+      <h3 id="totalAmount">Total Amount: ${totalAmount}</h3>
       <div class="payment">
         <h4> Mode Of Payment</h4>
         <ul>
@@ -374,16 +374,25 @@ function dashboard() {
 }
 
 function placeOrder(totalAmount) {
-  const payment = document.getElementById("payment");
-  const paymentContent = `
-   
+  if (orderItems.length === 0) {
+    const payment = document.getElementById("payment");
+    const paymentContent = `   
+      <h4>You didn't reserve an item yet!!</h4><span class="close" onclick="closebtn()">X</span>
+      <p>Total Amount to be paid: <span class="totalAmount">₱${totalAmount}</span></p>
+       `;
+    payment.innerHTML = paymentContent;
+  } else {
+    const payment = document.getElementById("payment");
+    const paymentContent = `
     <h4>Successfully Placed Order!!</h4><span class="close" onclick="closebtn()">X</span>
-    <p>Total Amount to be paid: ₱${totalAmount}</p>
+      <p>Total Amount to be paid: <span class="totalAmount">₱${totalAmount}</span></p>
      `;
-  payment.innerHTML = paymentContent;
+    payment.innerHTML = paymentContent;
+  }
 }
 function closebtn() {
   const order = document.getElementById("order");
-  payment.innerHTML = "";
+  totalAmount.innerHTML = 
   order.innerHTML = "";
+  payment.innerHTML = "";
 }

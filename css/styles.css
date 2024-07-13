@@ -207,18 +207,25 @@ alert {
   top: 40%;
   left: 40%;
   position: absolute;
-  background-color: rgb(15, 96, 15);
+  background-color: rgb(34, 179, 34);
   cursor: pointer;
+   
 }
 .confirmation h4 {
-  padding: 30px 30px 0px 30px;
-
+  padding: 50px 30px 0px 30px;
+  font-size: 25px;
   color: white;
 }
 .confirmation p {
   padding: 0px 30px 0px 30px;
   padding-bottom: 30px;
-  color: goldenrod;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+.confirmation p .totalAmount{
+  color: red;
 }
 .close {
   top: 10px;
